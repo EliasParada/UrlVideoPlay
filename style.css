@@ -1,0 +1,19 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 100%;
+    font-family: sans-serif;
+}
+h1 {
+    text-transform: uppercase;
+}
+video {
+    border: 2px solid red;
+}
+form {
+    margin: 20px;
+}
+form input[type="text"] {
+
+}
