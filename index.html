@@ -6,14 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>URL Video Play - No Downloads Required</title>
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('urlText').disabled = false;
+
+            if (localStorage.lastTime) {
+            console.log(localStorage.lastTime)
+            } else {
+                window.localStorage.setItem('lastTime', 0);
+            }
+        });
+    </script>
 </head>
 <body>
-    <form action="">
+    <form action="index.html" method="POST">
         <h1>Place the URL in the next field</h1>
-        <input type="text" placeholder="URL: http://page.com/video.mp4">
+        <input type="text" id="urlText" placeholder="URL: http://page.com/video.mp4" disabled>
+        <input type="submit" value="Play" id="btnUrl">
     </form>
-    <video width="50%" height="50%">
-        <source src="">
+    <video width="50%" height="50%" controls autoplay src="" id="vidSrc">
     </video>
+
+    <script>
+        let txtUrl = document.getElementById('urlText');
+        let btnUrl = document.getElementById('btnUrl');
+        let vidSrc = document.getElementById('vidSrc');
+
+        /*setInterval(function(){
+            console.log(vidSrc.currentTime);
+            localStorage.lastTime = vidSrc.currentTime;
+            console.log(localStorage.lastTime);
+        }, 3000);*/
+
+        btnUrl.addEventListener('click', function() {
+            event.preventDefault();
+            //vidSrc = document.getElementById('vidSrc').currentTime = localStorage.lastTime;
+            vidSrc.src = txtUrl.value;
+            vidSrc.setAttribute('src', txtUrl.value);
+            //https://download857.mediafire.com/iazkzdgf0qgg/ddbro92bmyhzauo/%5BMillenium+Fansub%5D+~+Yu-Gi-Oh%21+Duel+Monsters+~+045.mp4
+        });
+    </script>
 </body>
 </html>

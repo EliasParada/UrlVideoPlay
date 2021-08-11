@@ -1,19 +1,63 @@
+:root {
+    --white: white;
+    --black: black;
+}
+
 body, html {
     margin: 0;
     padding: 0;
     text-align: center;
     height: 100%;
     font-family: sans-serif;
+    color: white;
+    background: rgba(25, 25, 25, 1);
 }
 h1 {
     text-transform: uppercase;
+    text-shadow: 0px 0px 20px rgba(104, 104, 104, 1);
 }
 video {
     border: 2px solid red;
 }
 form {
-    margin: 20px;
+    margin: 20px auto;
+    padding: 20px;
+    width: 70%;
+    background: rgba(25, 25, 25, 1);
+    text-align: center;
+    border: solid 4px orange;
 }
-form input[type="text"] {
-
+form input[type = "text"] {
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    padding: 10px;
+    width: 90%;
+    margin: 10px auto;
+    display: block;
+    outline: none;
+    color: var(--white);
+    background: rgba(104, 104, 104, .7);
+    border: solid 2px green;
+    border-radius: 24px;
+}
+form input[type = "text"]:focus {
+    color: var(--black);
+    background: var(--white);
+}
+form input[type = "submit"] {
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    padding: 10px;
+    width: 20%;
+    margin: 10px auto;
+    display: block;
+    outline: none;
+    color: var(--white);
+    background: none;
+    border: solid 2px green;
+    border-radius: 24px;
+    cursor: pointer;
+}
+form input[type = "submit"]:hover {
+    background-color: green;
 }
