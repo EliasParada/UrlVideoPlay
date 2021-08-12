@@ -1,0 +1,76 @@
+*************************In JAVASCRIPT*************************
+(function( window, document) {
+            let video = document.getElementsByTagName('video')[0];
+            let videoControls = document.getElementById('videoControls');
+            let play = document.getElementById('play');
+
+            let progressContainer = document.getElementById('progress');
+            let progressHolder = document.getElementById('progress_box');
+            let playProgressBar = document.getElementById('play_progress');
+
+            let fullScreenToggleButton = document.getElementById('fullScreen');
+            let videoPlayer = {
+                init : function() {
+                    var that = this;
+
+                    console.log(video);
+                    document.documentElement.className = 'js';
+
+                    video.removeAttribute('controls');
+
+                    video.addEventListener('loadeddata', this.initializeControls, false);
+                    
+                    let hola = {initializeControls : function() {
+                            videoPlayer.showHideControls();
+                        }
+                    }
+
+                    let hola2 = {showHideControls : function() {
+                        video.addEventListener('mouseover', function() {
+                            videoControls.style.opacity = 1;
+                        }, false);
+
+                        videoControls.addEventListener('mouseover', function() {
+                            videoControls.style.opacity = 1;
+                        }, false);
+
+                        video.addEventListener('mouseout', function() {
+                            videoControls.style.opacity = 0;
+                        }, false);
+
+                        videoControls.addEventListener('mouseout', function() {
+                            videoControls.style.opacity = 0;
+                        }, false);
+                    }}
+
+                    this.handleButtonPress();
+
+                    handleButtonPress : function hola3() {
+                        video.addEventListener('click', this.playPause, false);
+                        play.addEventListener('click', this.playPause, false);
+
+                        video.addEventListener('play', function() {
+                            play.title = 'Pause';
+                            play.innerHTML = '<span id="pauseButton">&#x2590;&#x2590;</span>';
+                        }, false);
+
+                        video.addEventListener('pause', function() {
+                            play.title = 'Pause';
+                            play.innerHTML = '&#x25BA;'; 
+                        }, false);
+
+                        video.addEventListener('ended', function() {
+                            this.currentTime = 0;
+                            this.pause(); 
+                        }, false);
+                    }
+
+                    play.addEventListener('click', this.playPause, false);
+                }
+            };
+
+            
+
+            
+            videoPlayer.init();
+        }( this, document ))
