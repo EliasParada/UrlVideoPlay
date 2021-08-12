@@ -19,17 +19,22 @@
     </script>
 </head>
 <body>
-    <form action="index.html" method="POST">
+    <form action="index.html">
         <h1>Place the URL in the next field</h1>
         <input type="text" id="urlText" placeholder="URL: http://page.com/video.mp4" disabled>
         <input type="submit" value="Play" id="btnUrl">
     </form>
-    <video width="50%" height="50%" controls autoplay src="" id="vidSrc">
-    </video>
 
+    <section>
+        <video width="50%" height="50%" poster="" controls autoplay id="vid">
+            <source src="" id="vidSrc" type="video/mp4">
+        </video> 
+    </section>
+    
     <a href="lowdex.html">Versión experimental</a>
 
     <script>
+        let vid = document.getElementById('vid');
         let txtUrl = document.getElementById('urlText');
         let btnUrl = document.getElementById('btnUrl');
         let vidSrc = document.getElementById('vidSrc');
@@ -39,12 +44,12 @@
             localStorage.lastTime = vidSrc.currentTime;
             console.log(localStorage.lastTime);
         }, 3000);*/
-
         btnUrl.addEventListener('click', function() {
             event.preventDefault();
             //vidSrc = document.getElementById('vidSrc').currentTime = localStorage.lastTime;
             vidSrc.src = txtUrl.value;
             vidSrc.setAttribute('src', txtUrl.value);
+            vid.load();
             //https://download857.mediafire.com/iazkzdgf0qgg/ddbro92bmyhzauo/%5BMillenium+Fansub%5D+~+Yu-Gi-Oh%21+Duel+Monsters+~+045.mp4
         });
     </script>
