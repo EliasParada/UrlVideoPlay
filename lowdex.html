@@ -17,17 +17,59 @@
             }
         });
     </script>
+    <style>
+        .box {
+            margin: 20px auto;
+            padding: 20px;
+            width: 70%;
+            background: rgba(25, 25, 25, 1);
+            text-align: center;
+            border: solid 4px orange;
+        }
+        .box input[type = "text"] {
+            -webkit-transition: 0.25s;
+            transition: 0.25s;
+            padding: 10px;
+            width: 90%;
+            margin: 10px auto;
+            display: block;
+            outline: none;
+            color: var(--white);
+            background: rgba(104, 104, 104, .7);
+            border: solid 2px green;
+            border-radius: 24px;
+        }
+        .box input[type = "text"]:focus {
+            color: var(--black);
+            background: var(--white);
+        }
+        .box #btnUrl {
+            -webkit-transition: 0.25s;
+            transition: 0.25s;
+            padding: 10px;
+            width: 20%;
+            margin: 10px auto;
+            display: block;
+            outline: none;
+            color: var(--white);
+            background: none;
+            border: solid 2px green;
+            border-radius: 24px;
+            cursor: pointer;
+        }
+        .box #btnUrl:hover {
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
-    <form action="index.html" method="POST">
+    <div class="box">
         <h1>Place the URL in the next field</h1>
         <input type="text" id="urlText" placeholder="URL: http://page.com/video.mp4" disabled>
-        <input type="submit" value="Play" id="btnUrl">
-    </form>
+        <div id="btnUrl">Play</div>
+    </div>
     <video width="50%" height="50%" controls autoplay src="" id="vidSrc">
     </video>
-
-    <a href="lowdex.html">Versión experimental</a>
 
     <script>
         let txtUrl = document.getElementById('urlText');
